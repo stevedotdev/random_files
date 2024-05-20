@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Add New Book</title>
     <style>
+      /* Basic page styling */
       body {
         font-family: "Arial", sans-serif;
         background-color: #f4f4f4;
@@ -14,27 +15,37 @@
         height: 100vh;
         margin: 0;
       }
+
+      /* Form container styling */
       .form-container {
-        background: #ffffff;
+        width: 400px;
         padding: 20px;
+        background: #ffffff;
         border-radius: 8px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        width: 400px;
       }
+
+      /* Title styling */
       h2 {
-        color: #333;
         font-size: 24px;
         text-align: center;
+        color: #333;
         margin-bottom: 20px;
       }
+
+      /* Form group styling */
       .form-group {
         margin-bottom: 15px;
       }
+
+      /* Labels within form groups */
       .form-group label {
         display: block;
         color: #666;
         margin-bottom: 5px;
       }
+
+      /* Text and date inputs, select, and textarea styling */
       .form-group input[type="text"],
       .form-group input[type="date"],
       .form-group select,
@@ -45,11 +56,16 @@
         border-radius: 4px;
         box-sizing: border-box;
       }
+
+      /* Textarea specific styling */
       .form-group textarea {
         height: 100px;
         resize: none;
       }
+
+      /* Button styling */
       button {
+        width: 200px;
         background-color: #5c67f2;
         color: #fff;
         border: none;
@@ -57,9 +73,10 @@
         cursor: pointer;
         font-size: 16px;
         border-radius: 4px;
-        width: 200px;
         box-sizing: border-box;
       }
+
+      /* Button hover effect */
       button:hover {
         background-color: #5058e5;
       }
