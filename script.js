@@ -1,20 +1,17 @@
-function decrypt() {
-  const inputText = document.getElementById("input").value;
-  let decryptedText = "";
+document.getElementById('search-form').addEventListener('submit', function(e) {
+    e.preventDefault();
 
-  for (let i = 0; i < inputText.length; i++) {
-    let charCode = inputText.charCodeAt(i);
+    const regexInput = document.getElementById('regex-input').value;
+    const textInput = document.getElementById('text-input').value;
+    const resultDiv = document.getElementById('result');
 
-    if (charCode >= 65 && charCode <= 90) {
-      // A-Z
-      charCode = ((charCode - 65 + 13) % 26) + 65;
-    } else if (charCode >= 97 && charCode <= 122) {
-      // a-z
-      charCode = ((charCode - 97 + 13) % 26) + 97;
+    try {
+        const regex = new RegExp(regexInput, 'g');
+        const highlighted = textInput.replace(regex, '<span class="highlight">$&</span>');
+
+        resultDiv.innerHTML = highlighted;
+    } catch (e) {
+        console.error('Invalid regular expression', e);
+        resultDiv.innerText = 'Invalid regular expression';
     }
-
-    decryptedText += String.fromCharCode(charCode);
-  }
-
-  document.getElementById("output").value = decryptedText;
-}
+});

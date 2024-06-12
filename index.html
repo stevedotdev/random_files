@@ -2,22 +2,121 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="styles.css" />
-    <title>ROT-13 Decrypter</title>
+    <title>RegExp Highlighter</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: "Roboto", sans-serif;
+        background-color: #f0f2f5;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+
+      .container {
+        background-color: #ffffff;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        padding: 20px;
+        max-width: 600px;
+        width: 100%;
+        text-align: center;
+      }
+
+      h1 {
+        font-size: 2em;
+        color: #333333;
+        margin-bottom: 20px;
+      }
+
+      .input-section {
+        margin-bottom: 15px;
+        text-align: left;
+      }
+
+      .input-section label {
+        font-weight: 700;
+        color: #555555;
+        display: block;
+        margin-bottom: 5px;
+      }
+
+      .input-field {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #dddddd;
+        border-radius: 4px;
+        box-sizing: border-box;
+        font-size: 1em;
+        margin-bottom: 10px;
+      }
+
+      .input-field:focus {
+        border-color: #0056b3;
+        outline: none;
+      }
+
+      .submit-btn {
+        background-color: #0056b3;
+        color: #ffffff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        font-size: 1em;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      .submit-btn:hover {
+        background-color: #004494;
+      }
+
+      #result {
+        margin-top: 20px;
+        text-align: left;
+        font-size: 1em;
+        color: #333333;
+        white-space: pre-wrap;
+        word-wrap: break-word;
+      }
+
+      .highlight {
+        background-color: yellow;
+      }
+    </style>
   </head>
   <body>
     <div class="container">
-      <h1>ROT-13 Decrypter</h1>
-      <textarea
-        id="input"
-      ></textarea>
-      <button onclick="decrypt()">Decrypt</button>
-      <textarea
-        id="output"
-        readonly
-      ></textarea>
+      <h1>RegExp Highlighter</h1>
+      <form id="search-form">
+        <div class="input-section">
+          <label for="regex-input">Enter your Regular Expression:</label><br />
+          <input
+            type="text"
+            id="regex-input"
+            name="regex-input"
+            class="input-field"
+          /><br />
+        </div>
+        <div class="input-section">
+          <label for="text-input">Enter your Text:</label><br />
+          <textarea
+            id="text-input"
+            name="text-input"
+            class="input-field"
+          ></textarea
+          ><br />
+        </div>
+        <input type="submit" value="Highlight Matches" class="submit-btn" />
+      </form>
+      <div id="result"></div>
     </div>
     <script src="script.js"></script>
   </body>
