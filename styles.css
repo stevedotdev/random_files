@@ -1,34 +1,116 @@
-body,
-html {
-    height: 100%;
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
     margin: 0;
-    background-color: #000;
-    color: #fff;
+    padding: 0;
 }
 
-.container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
+.dashboard {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
 }
 
-h1 {
-    font-size: 2.5em;
+.header {
+    text-align: center;
     margin-bottom: 20px;
 }
 
-textarea {
-    width: 300px;
-    height: 100px;
-    margin: 10px;
-    padding: 10px;
-    font-size: 1em;
+.header h1 {
+    font-size: 2em;
+    color: #333;
 }
 
-button {
-    padding: 10px 20px;
+.content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.card {
+    background: #fff;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    flex: 1 1 calc(33% - 20px);
+    min-width: 250px;
+    text-align: center;
+}
+
+.card h2 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.card p,
+.card ul {
+    font-size: 1.2em;
+    color: #666;
+}
+
+#top-products-list,
+#recent-orders-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#top-products-list li,
+#recent-orders-list li {
     font-size: 1em;
-    cursor: pointer;
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
+}
+
+#top-products-list li img,
+#recent-orders-list li img {
+    width: 50px;
+    height: 50px;
+    border-radius: 8px;
+    margin-right: 10px;
+}
+
+#graph-placeholder {
+    height: 200px;
+    background-color: #e0e0e0;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #666;
+}
+
+#total-sales {
+    background-color: #ffecb3;
+    border-color: #ffca28;
+}
+
+#total-orders {
+    background-color: #c8e6c9;
+    border-color: #66bb6a;
+}
+
+#average-order-value {
+    background-color: #bbdefb;
+    border-color: #42a5f5;
+}
+
+#recent-orders {
+    background-color: #d7ccc8;
+    border-color: #8d6e63;
+}
+
+#top-products {
+    background-color: #ffcdd2;
+    border-color: #ef5350;
+}
+
+#sales-graph {
+    background-color: #e1bee7;
+    border-color: #ab47bc;
 }
