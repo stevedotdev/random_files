@@ -1,116 +1,59 @@
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    background-color: #f1f1f1;
+    font-family: "Arial", sans-serif;
     margin: 0;
     padding: 0;
-}
-
-.dashboard {
-    max-width: 1200px;
-    margin: 20px auto;
-    padding: 20px;
-    background: white;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-}
-
-.header {
+  }
+  
+  h1 {
+    font-size: 2rem;
     text-align: center;
-    margin-bottom: 20px;
-}
-
-.header h1 {
-    font-size: 2em;
-    color: #333;
-}
-
-.content {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-}
-
-.card {
-    background: #fff;
-    border: 1px solid #ddd;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    flex: 1 1 calc(33% - 20px);
-    min-width: 250px;
+    padding-top: 100px;
+  }
+  
+  p {
+    font-size: 1.5rem;
+    font-weight: 600;
     text-align: center;
-}
-
-.card h2 {
-    font-size: 1.5em;
-    margin-bottom: 10px;
-    color: #333;
-}
-
-.card p,
-.card ul {
-    font-size: 1.2em;
-    color: #666;
-}
-
-#top-products-list,
-#recent-orders-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-#top-products-list li,
-#recent-orders-list li {
-    font-size: 1em;
-    margin: 10px 0;
+    margin-bottom: 0.5rem;
+  }
+  
+  .buttons {
     display: flex;
-    align-items: center;
-}
-
-#top-products-list li img,
-#recent-orders-list li img {
-    width: 50px;
-    height: 50px;
-    border-radius: 8px;
-    margin-right: 10px;
-}
-
-#graph-placeholder {
-    height: 200px;
-    background-color: #e0e0e0;
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
     justify-content: center;
-    color: #666;
-}
-
-#total-sales {
-    background-color: #ffecb3;
-    border-color: #ffca28;
-}
-
-#total-orders {
-    background-color: #c8e6c9;
-    border-color: #66bb6a;
-}
-
-#average-order-value {
-    background-color: #bbdefb;
-    border-color: #42a5f5;
-}
-
-#recent-orders {
-    background-color: #d7ccc8;
-    border-color: #8d6e63;
-}
-
-#top-products {
-    background-color: #ffcdd2;
-    border-color: #ef5350;
-}
-
-#sales-graph {
-    background-color: #e1bee7;
-    border-color: #ab47bc;
-}
+  }
+  
+  button {
+    border: none;
+    font-size: 3rem;
+    margin: 0 0.5rem;
+    padding: 0.5rem;
+    cursor: pointer;
+    border-radius: 5px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.7);
+    transition: all 0.3s ease-in-out;
+  }
+  
+  button:hover {
+    opacity: 0.7;
+  }
+  
+  #rock {
+    background-color: #4f2424;
+  }
+  
+  #paper {
+    background-color: #ddd160;
+  }
+  
+  #scissors {
+    background-color: #595c59;
+  }
+  
+  #user-score {
+    color: #2196f3;
+  }
+  
+  #computer-score {
+    color: #ff0000;
+  }
