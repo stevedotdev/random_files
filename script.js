@@ -1,42 +1,31 @@
-const buttons = document.querySelectorAll("button");
+document.getElementById("processBtn").addEventListener("click", function () {
+  const fileInput = document.getElementById("fileInput");
+  const spaces = parseInt(document.getElementById("spaces").value, 10);
+  const output = document.getElementById("output");
+  const downloadLink = document.getElementById("downloadLink");
 
-const resultEl = document.getElementById("result");
+  if (fileInput.files.length === 0) {
+    alert("Please select an HTML file.");
+    return;
+  }
 
-const playerScoreEl = document.getElementById("user-score");
+  const file = fileInput.files[0];
+  const reader = new FileReader();
 
-const computerScoreEl = document.getElementById("computer-score");
+  reader.onload = function (event) {
+    const htmlContent = event.target.result;
+    const formattedContent = beautifyHTML(htmlContent, spaces);
+    output.textContent = formattedContent;
+    createDownloadLink(formattedContent, downloadLink, file.name);
+  };
 
-let playerScore = 0;
-let computerScore = 0;
-
-buttons.forEach((button) => {
-  button.addEventListener("click", () => {
-    const result = playRound(button.id, computerPlay());
-    resultEl.textContent = result;
-    
-  });
+  reader.readAsText(file);
 });
 
-function computerPlay() {
-  const choices = ["rock", "paper", "scissors"];
-  const randomChoice = Math.floor(Math.random() * choices.length);
-  return choices[randomChoice];
+function beautifyHTML(html, spaces) {
+  return html_beautify(html, { indent_size: spaces });
 }
 
-function playRound(playerSelection, computerSelection) {
-  if (playerSelection === computerSelection) {
-    return "It's a tie!";
-  } else if (
-    (playerSelection === "rock" && computerSelection === "scissors") ||
-    (playerSelection === "paper" && computerSelection === "rock") ||
-    (playerSelection === "scissors" && computerSelection === "paper")
-  ) {
-    playerScore++;
-    playerScoreEl.textContent = playerScore;
-    return "You win! " + playerSelection + " beats " + computerSelection;
-  } else {
-    computerScore++;
-    computerScoreEl.textContent = computerScore;
-    return "You lose! " + computerSelection + " beats " + playerSelection;
-  }
+function createDownloadLink(content, linkElement, originalFileName) {
+  // Add code here
 }
