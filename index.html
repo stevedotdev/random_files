@@ -1,70 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Image Grid</title>
+    <title>Background Color Changer</title>
     <style>
       body {
-        font-family: Arial, sans-serif;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-        margin: 0;
-        background-color: #f4f4f4;
-      }
-      .container {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 10px;
-      }
-      .container img {
-        width: 100%;
-        height: auto;
-        border-radius: 8px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: background-color 0.5s ease;
       }
     </style>
   </head>
   <body>
-    <div class="container">
-      <img
-        src="https://fastly.picsum.photos/id/638/300/200.jpg?hmac=9xOkRBwg2MqZ_drleWCgKt3px4vYconwkB2a9kUs-c0"
-        alt="image 1"
-      />
-      <img
-        src="https://fastly.picsum.photos/id/675/300/200.jpg?hmac=gdDFgQJ7xTTqXXQE7iqGTDNMsOlNGrQjAQh3mFGbPUY"
-        alt="image 2"
-      />
-      <img
-        src="https://fastly.picsum.photos/id/740/300/200.jpg?hmac=02VXkAz54aSHF2uKi1JSmOkJFO7u8_qyEL3KT0oAfQ4"
-        alt="image 3"
-      />
-      <img
-        src="https://fastly.picsum.photos/id/1003/300/200.jpg?hmac=oYEL3IP681vTZtrJIPtCEBR8VmWNII0bP_FUZ6jcbb8"
-        alt="image 4"
-      />
-      <img
-        src="https://fastly.picsum.photos/id/272/300/200.jpg?hmac=pToeQGP7P1ALht579t2BWQOoVzuPB2zvbdy3kQKMMFE"
-        alt="image 5"
-      />
-      <img
-        src="https://fastly.picsum.photos/id/877/300/200.jpg?hmac=1XJcqWaNYVzuUOKHrKOqRkSEZUJrbfOrGTXyMdy7gvs"
-        alt="image 6"
-      />
-      <img
-        src="https://fastly.picsum.photos/id/404/300/200.jpg?hmac=HvC19yKkJYdFi8bGMQz5RLFwPhvv6vLigirO5B5XGDc"
-        alt="image 7"
-      />
-      <img
-        src="https://fastly.picsum.photos/id/308/300/200.jpg?hmac=eKnwYo1eUzMt3_g3nuv7UuhC8xbc7meak7wPj9sdQdk"
-        alt="image 8"
-      />
-      <img
-        src="https://fastly.picsum.photos/id/115/300/200.jpg?hmac=XCw_Vediq7_09XA6_BhrXT2nckRy4Hcq3R5TafWs3Eo"
-        alt="image 9"
-      />
-    </div>
+    <input id="slider" type="range" min="0" max="255" value="255" />
+    <script>
+      document.getElementById("slider").addEventListener("input", function () {
+        var grayScale = this.value;
+        document.body.style.backgroundColor =
+          "rgb(" + [grayScale, grayScale, grayScale].join(",") + ")";
+      });
+    </script>
   </body>
 </html>
