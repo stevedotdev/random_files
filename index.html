@@ -1,21 +1,35 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <title>Background Color Changer</title>
-    <style>
-      body {
-        transition: background-color 0.5s ease;
-      }
-    </style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simple Calculator</title>
+    <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <input id="slider" type="range" min="0" max="255" value="255" />
-    <script>
-      document.getElementById("slider").addEventListener("input", function () {
-        var grayScale = this.value;
-        document.body.style.backgroundColor =
-          "rgb(" + [grayScale, grayScale, grayScale].join(",") + ")";
-      });
-    </script>
+    <div class="calculator">
+      <input type="text" id="display" disabled />
+      <input type="text" id="secondary-display" disabled />
+      <div class="buttons">
+        <button class="btn" data-value="7">7</button>
+        <button class="btn" data-value="8">8</button>
+        <button class="btn" data-value="9">9</button>
+        <button class="btn" data-value="/">/</button>
+        <button class="btn" data-value="4">4</button>
+        <button class="btn" data-value="5">5</button>
+        <button class="btn" data-value="6">6</button>
+        <button class="btn" data-value="*">*</button>
+        <button class="btn" data-value="1">1</button>
+        <button class="btn" data-value="2">2</button>
+        <button class="btn" data-value="3">3</button>
+        <button class="btn" data-value="-">-</button>
+        <button class="btn" data-value="0">0</button>
+        <button class="btn" data-value=".">.</button>
+        <button class="btn" data-value="=">=</button>
+        <button class="btn" data-value="+">+</button>
+        <button class="btn" data-value="C">C</button>
+      </div>
+    </div>
+    <script src="script.js"></script>
   </body>
 </html>

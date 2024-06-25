@@ -1,31 +1,24 @@
-document.getElementById("processBtn").addEventListener("click", function () {
-  const fileInput = document.getElementById("fileInput");
-  const spaces = parseInt(document.getElementById("spaces").value, 10);
-  const output = document.getElementById("output");
-  const downloadLink = document.getElementById("downloadLink");
+const buttons = document.querySelectorAll(".btn");
+const display = document.getElementById("display");
+const secondaryDisplay = document.getElementById("secondary-display");
 
-  if (fileInput.files.length === 0) {
-    alert("Please select an HTML file.");
-    return;
-  }
+buttons.forEach((button) => {
+  button.addEventListener("click", () => {
+    const value = button.getAttribute("data-value");
 
-  const file = fileInput.files[0];
-  const reader = new FileReader();
-
-  reader.onload = function (event) {
-    const htmlContent = event.target.result;
-    const formattedContent = beautifyHTML(htmlContent, spaces);
-    output.textContent = formattedContent;
-    createDownloadLink(formattedContent, downloadLink, file.name);
-  };
-
-  reader.readAsText(file);
+    if (value === "C") {
+      display.value = "";
+      secondaryDisplay.value = "";
+    } else if (value === "=") {
+      try {
+        secondaryDisplay.value = display.value + " = " + eval(display.value);
+        display.value = eval(display.value);
+      } catch {
+        display.value = "Error";
+      }
+    } else {
+      display.value += value;
+      secondaryDisplay.value = display.value;
+    }
+  });
 });
-
-function beautifyHTML(html, spaces) {
-  return html_beautify(html, { indent_size: spaces });
-}
-
-function createDownloadLink(content, linkElement, originalFileName) {
-  // Add code here
-}
