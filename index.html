@@ -1,84 +1,96 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <title>Digital Clock</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Carpentry Basics: Types of Wood Joints</title>
     <style>
       body {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-        font-family: Arial, sans-serif;
-        background-color: #f3f3f3;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        margin: 0;
+        padding: 0;
+        background: #f4f4f4;
+        color: #333;
       }
       .container {
-        display: flex;
+        max-width: 800px;
+        margin: auto;
+        padding: 20px;
+        background: #fff;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
       }
-      .clock {
-        font-size: 48px;
+
+      .emphasis {
+        font-style: italic;
       }
-      #timezone {
-        margin-left: 15px;
-        border-radius: 10px;
-        padding: 5px;
+
+      h1,
+      h2 {
+        color: #444;
+      }
+      h1 {
+        margin-top: 0;
+      }
+      p {
+        margin: 10px 0;
+        line-height: 1.8;
+      }
+      .important {
+        color: #d35400;
+        font-weight: bold;
       }
     </style>
   </head>
   <body>
     <div class="container">
-      <div id="clock" class="clock"></div>
-      <select id="timezone">
-        <option value="0">UTC (Coordinated Universal Time)</option>
-        <option value="2">CAT (Central Africa Time)</option>
-        <option value="3">EAT (Eastern Africa Time)</option>
-        <option value="0">GMT (Greenwich Meridean Time)</option>
-        <option value="1">WAT (West Africa Time)</option>
-      </select>
+      <h1>Carpentry Basics: Types of Wood Joints</h1>
+
+      <p>
+        Understanding the different types of wood joints is fundamental for any
+        carpentry project. This guide covers some of the most common and useful
+        joints.
+      </p>
+
+      <h2>Butt Joint</h2>
+      <p>
+        The simplest form of joint is the
+        <span class="important">butt joint</span>, where the end of one piece of
+        wood is butted against another and secured with glue, nails, or screws.
+        Ideal for simple constructions, but not the strongest joint.
+      </p>
+
+      <h2>Dovetail Joint</h2>
+      <p>
+        Known for its resistance to being pulled apart (tensile strength), the
+        <span class="important">dovetail joint</span> is commonly used in drawer
+        construction. Its interlocking design makes it one of the strongest and
+        most aesthetic wood joints.
+      </p>
+
+      <h2>Mortise and Tenon Joint</h2>
+      <p>
+        A staple in woodworking, the
+        <span class="important">mortise and tenon joint</span> involves
+        inserting the tenon (a square or rectangular post) into a mortise (a
+        hole of the same shape). This joint is celebrated for its strength and
+        versatility in various applications.
+      </p>
+
+      <h2>Lap Joint</h2>
+      <p>
+        In a <span class="important">lap joint</span>, two pieces of wood
+        overlap each other. It's a stronger alternative to the butt joint and
+        can be used in frame and box constructions. Depending on the project,
+        different types of lap joints can be used, such as the half-lap or
+        cross-lap.
+      </p>
+
+      <p>
+        Each type of joint has its specific uses and benefits. Choosing the
+        right joint depends on the requirements of the carpentry project,
+        including strength, aesthetics, and the type of wood being used.
+      </p>
     </div>
-
-    <script>
-      // Get the clock div element where time will be displayed
-      const clockElement = document.getElementById("clock");
-
-      // Get the dropdown (select element) where the timezone will be selected
-      const timezoneElement = document.getElementById("timezone");
-
-      function updateTime() {
-        // Get the current date and time
-        const date = new Date();
-
-        // Get the current UTC time in milliseconds since January 1, 1970
-        const utcTime = date.getTime();
-
-        // Get the value of the selected option in the dropdown (this is the timezone offset)
-        const timezoneOffset = timezoneElement.value;
-
-        // Log the timezone offset multiplied by 3600000 (this converts the offset from hours to milliseconds)
-        console.log(3600000 * timezoneOffset);
-
-        // Create a new date object that represents the current time plus the timezone offset
-        const timezoneTime = new Date(utcTime + 3600000 * timezoneOffset);
-
-        // Get the hours, minutes, and seconds from the new date object, making sure they are two digits long
-        const hours = timezoneTime.getUTCHours().toString().padStart(2, "0");
-        const minutes = timezoneTime
-          .getUTCMinutes()
-          .toString()
-          .padStart(2, "0");
-        const seconds = timezoneTime
-          .getUTCSeconds()
-          .toString()
-          .padStart(2, "0");
-
-        // Set the inner HTML of the clock div to the current hours, minutes, and seconds
-        clockElement.innerHTML = `${hours}:${minutes}:${seconds}`;
-      }
-
-      // Add an event listener to the dropdown so that when its value changes (i.e. a new option is selected), the updateTime function will run
-      timezoneElement.addEventListener("change", updateTime);
-
-      // Set an interval that runs the updateTime function every 1000 milliseconds (1 second)
-      setInterval(updateTime, 1000);
-    </script>
   </body>
 </html>
