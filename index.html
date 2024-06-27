@@ -1,58 +1,84 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>JSON Check</title>
-    <!-- Bootstrap CSS -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
+    <title>Digital Clock</title>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        font-family: Arial, sans-serif;
+        background-color: #f3f3f3;
+      }
+      .container {
+        display: flex;
+      }
+      .clock {
+        font-size: 48px;
+      }
+      #timezone {
+        margin-left: 15px;
+        border-radius: 10px;
+        padding: 5px;
+      }
+    </style>
   </head>
   <body>
-    <div class="container mt-5">
-      <h1>Check if a string is valid JSON</h1>
-      <div class="mb-3">
-        <label for="jsonInput" class="form-label"
-          >Enter the string to check:</label
-        >
-        <textarea class="form-control" id="jsonInput" rows="6"></textarea>
-      </div>
-      <div id="result" class="mt-3"></div>
-      <button class="btn btn-primary mt-3" onclick="checkJSON()">Check</button>
-      <div class="mb-3 mt-5">
-        <label for="fixedJson" class="form-label">Possible Fix for JSON</label>
-        <textarea class="form-control" id="fixedJson" rows="3"></textarea>
-      </div>
+    <div class="container">
+      <div id="clock" class="clock"></div>
+      <select id="timezone">
+        <option value="0">UTC (Coordinated Universal Time)</option>
+        <option value="2">CAT (Central Africa Time)</option>
+        <option value="3">EAT (Eastern Africa Time)</option>
+        <option value="0">GMT (Greenwich Meridean Time)</option>
+        <option value="1">WAT (West Africa Time)</option>
+      </select>
     </div>
 
-    <script src="./jsonrepair.js"></script>
-    <!-- JavaScript function to check JSON -->
     <script>
-      function checkJSON() {
-        const { jsonrepair } = JSONRepair;
-        const jsonStr = document.getElementById("jsonInput").value;
-        const resultElement = document.getElementById("result");
-        const fixedJsonInput = document.getElementById("fixedJson");
+      // Get the clock div element where time will be displayed
+      const clockElement = document.getElementById("clock");
 
-        try {
-          fixedJsonInput.value = "";
-          fixedJsonInput.style.color = "";
-          JSON.parse(jsonStr);
-          resultElement.innerHTML =
-            '<span class="text-success">The string is a valid JSON.</span>';
-        } catch (e) {
-          try {
-            fixedJsonInput.value = jsonrepair(jsonStr);
-          } catch (e) {
-            fixedJsonInput.value = "could not fix JSON";
-            fixedJsonInput.style.color = "red";
-          }
-          resultElement.innerHTML =
-            '<span class="text-danger">The string is NOT a valid JSON.</span>';
-        }
+      // Get the dropdown (select element) where the timezone will be selected
+      const timezoneElement = document.getElementById("timezone");
+
+      function updateTime() {
+        // Get the current date and time
+        const date = new Date();
+
+        // Get the current UTC time in milliseconds since January 1, 1970
+        const utcTime = date.getTime();
+
+        // Get the value of the selected option in the dropdown (this is the timezone offset)
+        const timezoneOffset = timezoneElement.value;
+
+        // Log the timezone offset multiplied by 3600000 (this converts the offset from hours to milliseconds)
+        console.log(3600000 * timezoneOffset);
+
+        // Create a new date object that represents the current time plus the timezone offset
+        const timezoneTime = new Date(utcTime + 3600000 * timezoneOffset);
+
+        // Get the hours, minutes, and seconds from the new date object, making sure they are two digits long
+        const hours = timezoneTime.getUTCHours().toString().padStart(2, "0");
+        const minutes = timezoneTime
+          .getUTCMinutes()
+          .toString()
+          .padStart(2, "0");
+        const seconds = timezoneTime
+          .getUTCSeconds()
+          .toString()
+          .padStart(2, "0");
+
+        // Set the inner HTML of the clock div to the current hours, minutes, and seconds
+        clockElement.innerHTML = `${hours}:${minutes}:${seconds}`;
       }
+
+      // Add an event listener to the dropdown so that when its value changes (i.e. a new option is selected), the updateTime function will run
+      timezoneElement.addEventListener("change", updateTime);
+
+      // Set an interval that runs the updateTime function every 1000 milliseconds (1 second)
+      setInterval(updateTime, 1000);
     </script>
   </body>
 </html>
