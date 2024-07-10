@@ -34,7 +34,17 @@ website_urls = [
     'http://example.com',
     'http://spork.org',
     'http://example.net',
-    
+    'http://travelassist.com',
+    'http://fogcam.org',
+    'http://milk.com',
+    'http://aliweb.com',
+    'http://info.cern.ch',
+    'http://acme.com',
+    'http://cfg.com',
+    'http://toad.com',
+    'http://tic.com',
+    'http://vortex.com',
+    'http://itcorp.com',
 ]
 
 try:
