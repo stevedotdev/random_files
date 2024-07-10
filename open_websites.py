@@ -41,7 +41,6 @@ website_urls = [
     'http://info.cern.ch',
     'http://acme.com',
     'http://cfg.com',
-    'http://toad.com',
     'http://tic.com',
     'http://vortex.com',
     'http://itcorp.com',
