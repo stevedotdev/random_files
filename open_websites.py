@@ -32,7 +32,7 @@ driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install())
 # URL list of the websites to be opened
 website_urls = [
     'http://example.com',
-    'http://example.org',
+    'http://spork.org',
     'http://example.net',
     
 ]
